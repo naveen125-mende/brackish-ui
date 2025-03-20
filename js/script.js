@@ -14,3 +14,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+const carouselContainer = document.querySelector(".carousel-container");
+let index = 0;
+
+function slideReviews() {
+    index++;
+    if (index > 2) { 
+        index = 0; 
+    }
+    carouselContainer.style.transform = `translateX(-${index * 100}%)`;
+}
+
+// Auto-slide every 3 seconds
+setInterval(slideReviews, 3000);
