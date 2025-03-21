@@ -1,19 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
     let menuIcon = document.getElementById("hambarMenu");
     let menuContent = document.getElementById("barContent");
+    let navItems = document.querySelectorAll(".hambar-container .nav-item a");
 
     menuIcon.addEventListener("click", function () {
-        if (menuContent.classList.contains("show")) {
+        menuContent.classList.toggle("show");
+        menuIcon.classList.toggle("fa-bars");
+        menuIcon.classList.toggle("fa-times");
+    });
+
+    // Close menu when clicking any nav item
+    navItems.forEach(item => {
+        item.addEventListener("click", function () {
             menuContent.classList.remove("show");
             menuIcon.classList.remove("fa-times");
-            menuIcon.classList.add("fa-bars");  
-        } else {
-            menuContent.classList.add("show");
-            menuIcon.classList.remove("fa-bars");
-            menuIcon.classList.add("fa-times"); 
-        }
+            menuIcon.classList.add("fa-bars");
+        });
     });
 });
+
+
+
+
 const carouselContainer = document.querySelector(".carousel-container");
 let index = 0;
 
